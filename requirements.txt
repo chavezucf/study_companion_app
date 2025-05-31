@@ -1,0 +1,6 @@
+# Required Python packages
+PySimpleGUI
+# or Streamlit
+# Rich (optional)
+# tinydb or sqlite3 (for persistence)
+# pydantic (optional)
