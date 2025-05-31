@@ -1,0 +1,11 @@
+[theme]
+# customize theme here
+
+[server]
+# headless = true
+
+[browser]
+gatherUsageStats = false
+
+[ui]
+hideSidebarNav = true

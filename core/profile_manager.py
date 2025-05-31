@@ -50,3 +50,20 @@ class ProfileManager:
             else:
                 break
         self.profile["level"] = new_level
+        
+    def get_topics(self):
+        return self.profile.get("topics", {})
+
+    def update_topic_performance(self, topic, correct):
+        if "topics" not in self.profile:
+            self.profile["topics"] = {}
+
+        if topic not in self.profile["topics"]:
+            self.profile["topics"][topic] = {"correct": 0, "incorrect": 0}
+
+        if correct:
+            self.profile["topics"][topic]["correct"] += 1
+        else:
+            self.profile["topics"][topic]["incorrect"] += 1
+
+        self.save_profile()

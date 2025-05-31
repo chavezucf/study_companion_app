@@ -1,5 +1,115 @@
 {
-  "username": "Miguel",
-  "xp": 0,
-  "level": 1
+    "username": "Miguel",
+    "xp": 250,
+    "level": 2,
+    "topics": {
+        "Azure Key Vault": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Blob Storage": {
+            "correct": 0,
+            "incorrect": 2
+        },
+        "Azure Functions": {
+            "correct": 2,
+            "incorrect": 0
+        },
+        "Azure SQL Database": {
+            "correct": 1,
+            "incorrect": 1
+        },
+        "Azure Service Bus": {
+            "correct": 1,
+            "incorrect": 1
+        },
+        "Azure Storage Account": {
+            "correct": 3,
+            "incorrect": 2
+        },
+        "Azure Container Registry": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Logic Apps": {
+            "correct": 2,
+            "incorrect": 1
+        },
+        "Azure App Service": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Application Gateway": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Traffic Manager": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Monitor": {
+            "correct": 4,
+            "incorrect": 1
+        },
+        "Durable Functions": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure AD B2C": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Front Door": {
+            "correct": 1,
+            "incorrect": 2
+        },
+        "Azure Cosmos DB": {
+            "correct": 2,
+            "incorrect": 1
+        },
+        "Azure CDN": {
+            "correct": 1,
+            "incorrect": 1
+        },
+        "Azure App Configuration": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Repos": {
+            "correct": 2,
+            "incorrect": 0
+        },
+        "Azure Kubernetes Service": {
+            "correct": 2,
+            "incorrect": 0
+        },
+        "API Management": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Pipelines": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Virtual Network Gateway": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Virtual Machines": {
+            "correct": 1,
+            "incorrect": 1
+        },
+        "Azure Load Balancer": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Virtual Network": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure CLI": {
+            "correct": 15,
+            "incorrect": 66
+        }
+    }
 }

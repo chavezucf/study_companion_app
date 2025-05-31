@@ -1,50 +1,41 @@
-import PySimpleGUI as sg
+import streamlit as st
 from core.profile_manager import ProfileManager
+from utils.ui_helpers import (
+    hide_sidebar,
+    render_page_header,
+    xp_progress_bar,
+    render_footer,
+)
+from utils.logger import log_event
+
+# Page config
+st.set_page_config(page_title="AZ-204 Study Companion", page_icon="📚", layout="centered")
+
+# Hide sidebar
+hide_sidebar()
 
 # Initialize profile
 profile_manager = ProfileManager()
 
-# Layout for main menu
-layout = [
-    [sg.Text(f"Welcome, {profile_manager.get_username()}!", font=("Helvetica", 16))],
-    [sg.Text(f"Level: {profile_manager.get_level()}    XP: {profile_manager.get_xp()}")],
-    [sg.Button("1️⃣  Study Adventure")],
-    [sg.Button("2️⃣  Scenario Generator")],
-    [sg.Button("3️⃣  CLI Trainer")],
-    [sg.Button("4️⃣  True/False Rapid Fire")],
-    [sg.Button("5️⃣  Code Snippet Organizer")],
-    [sg.Button("Exit")]
-]
+# Page header
+render_page_header("AZ-204 Study Companion", profile_manager)
 
-# Create window
-window = sg.Window("AZ-204 Study Companion", layout)
+# XP Progress
+xp_progress_bar(st, profile_manager)
 
-# Main event loop
-while True:
-    event, values = window.read()
+# Module Links
+st.header("📚 Study Modules")
 
-    if event == sg.WINDOW_CLOSED or event == "Exit":
-        break
-    elif event == "1️⃣  Study Adventure":
-        sg.popup("Study Adventure - coming soon!")
-        profile_manager.add_xp(10)  # Example: +10 XP for opening
-    elif event == "2️⃣  Scenario Generator":
-        sg.popup("Scenario Generator - coming soon!")
-        profile_manager.add_xp(10)
-    elif event == "3️⃣  CLI Trainer":
-        sg.popup("CLI Trainer - coming soon!")
-        profile_manager.add_xp(10)
-    elif event == "4️⃣  True/False Rapid Fire":
-        sg.popup("True/False - coming soon!")
-        profile_manager.add_xp(10)
-    elif event == "5️⃣  Code Snippet Organizer":
-        sg.popup("Code Snippet Organizer - coming soon!")
-        profile_manager.add_xp(10)
+st.page_link("pages/1_true_false.py", label="✅ True/False Rapid Fire")
+st.page_link("pages/2_cli_trainer.py", label="🖥️ CLI Trainer")
+st.page_link("pages/3_scenario_generator.py", label="🧩 Scenario Generator")
+st.page_link("pages/4_snippet_organizer.py", label="💻 Code Snippet Organizer")
+st.page_link("pages/5_study_adventure.py", label="🎮 Study Adventure")
 
-    # Update displayed XP/Level
-    window["Level: " + str(profile_manager.get_level()) + "    XP: " + str(profile_manager.get_xp())].update(
-        f"Level: {profile_manager.get_level()}    XP: {profile_manager.get_xp()}"
-    )
+# XP Progress again (optional, refresh)
+st.write("---")
+st.write(f"**Updated Level:** {profile_manager.get_level()} | **XP:** {profile_manager.get_xp()}")
+xp_progress_bar(st, profile_manager)
 
-# Close window
-window.close()
+# Footer
+render_footer(show_back_button=False)

@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "question_type": "full_command",
+        "question": "How do you create a resource group?",
+        "command": "az group create --name MyResourceGroup --location eastus",
+        "answer": "az group create --name MyResourceGroup --location eastus",
+        "explanation": "You use az group create with --name and --location to create a resource group.",
+        "subject": "Azure CLI"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you create a resource group?",
+        "command_template": "az group create --name {NAME} --location {LOCATION}",
+        "blanks": ["NAME", "LOCATION"],
+        "answer": {
+            "NAME": "MyResourceGroup",
+            "LOCATION": "eastus"
+        },
+        "explanation": "You use az group create with --name and --location.",
+        "subject": "Azure CLI"
+    },
+    {
+        "question_type": "mcq",
+        "question": "Which command creates a resource group?",
+        "choices": [
+            "az group create",
+            "az resource new",
+            "az rg make"
+        ],
+        "answer": "az group create",
+        "explanation": "az group create is the correct command.",
+        "subject": "Azure CLI"
+    }
+]

@@ -1,5 +1,5 @@
 # Required Python packages
-PySimpleGUI
+streamlit
 # or Streamlit
 # Rich (optional)
 # tinydb or sqlite3 (for persistence)

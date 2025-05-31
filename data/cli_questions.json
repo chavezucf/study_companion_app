@@ -1,0 +1,230 @@
+[
+    {
+        "question_type": "fill_blank",
+        "question": "How do you create a resource group?",
+        "command_template": "az {key1} {key2} --{flag1} MyResourceGroup --{flag2} eastus",
+        "blanks": ["key1", "key2", "flag1", "flag2"],
+        "answer": {
+            "key1": "group",
+            "key2": "create",
+            "flag1": "name",
+            "flag2": "location"
+        },
+        "explanation": "az group create creates a resource group.",
+        "subject": "Azure CLI",
+        "topic": "Resource Groups"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you list all resource groups?",
+        "command_template": "az {key1} {key2}",
+        "blanks": ["key1", "key2"],
+        "answer": {
+            "key1": "group",
+            "key2": "list"
+        },
+        "explanation": "az group list returns all resource groups.",
+        "subject": "Azure CLI",
+        "topic": "Resource Groups"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you create a container instance?",
+        "command_template": "az container create --{flag1} mycontainer --{flag2} myresourcegroup --{flag3} nginx",
+        "blanks": ["flag1", "flag2", "flag3"],
+        "answer": {
+            "flag1": "name",
+            "flag2": "resource-group",
+            "flag3": "image"
+        },
+        "explanation": "az container create deploys a container instance.",
+        "subject": "Azure Containers",
+        "topic": "Azure Container Instances"
+    },
+    {
+        "question_type": "mcq",
+        "question": "Which command lists all Azure VMs?",
+        "choices": [
+            "az vm list",
+            "az compute vm list",
+            "az virtualmachines show"
+        ],
+        "answer": "az vm list",
+        "explanation": "az vm list lists all VMs.",
+        "subject": "Azure CLI",
+        "topic": "Azure Virtual Machines"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you retrieve a Key Vault secret?",
+        "command_template": "az keyvault secret {key1} --{flag1} mykeyvault --{flag2} mysecret",
+        "blanks": ["key1", "flag1", "flag2"],
+        "answer": {
+            "key1": "show",
+            "flag1": "vault-name",
+            "flag2": "name"
+        },
+        "explanation": "az keyvault secret show retrieves a secret.",
+        "subject": "Azure Security",
+        "topic": "Azure Key Vault"
+    },
+    {
+        "question_type": "full_command",
+        "question": "How do you start an Azure VM?",
+        "command": "az vm start --resource-group myresourcegroup --name myvm",
+        "answer": "az vm start --resource-group myresourcegroup --name myvm",
+        "explanation": "az vm start starts a VM.",
+        "subject": "Azure CLI",
+        "topic": "Azure Virtual Machines"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you deploy a Bicep file?",
+        "command_template": "az deployment group {key1} --{flag1} myresourcegroup --{flag2} main.bicep",
+        "blanks": ["key1", "flag1", "flag2"],
+        "answer": {
+            "key1": "create",
+            "flag1": "resource-group",
+            "flag2": "template-file"
+        },
+        "explanation": "az deployment group create deploys a Bicep template.",
+        "subject": "Bicep",
+        "topic": "Bicep Deployment"
+    },
+    {
+        "question_type": "mcq",
+        "question": "Which command deletes a resource group?",
+        "choices": [
+            "az group delete",
+            "az resource-group remove",
+            "az group drop"
+        ],
+        "answer": "az group delete",
+        "explanation": "az group delete removes a resource group.",
+        "subject": "Azure CLI",
+        "topic": "Resource Groups"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you create an App Service plan?",
+        "command_template": "az appservice {key1} --{flag1} MyPlan --{flag2} MyResourceGroup --{flag3} B1 --{flag4}",
+        "blanks": ["key1", "flag1", "flag2", "flag3", "flag4"],
+        "answer": {
+            "key1": "plan create",
+            "flag1": "name",
+            "flag2": "resource-group",
+            "flag3": "sku",
+            "flag4": "is-linux"
+        },
+        "explanation": "az appservice plan create creates an App Service plan.",
+        "subject": "Azure Compute",
+        "topic": "Azure App Service"
+    },
+    {
+        "question_type": "full_command",
+        "question": "How do you log in to Azure CLI?",
+        "command": "az login",
+        "answer": "az login",
+        "explanation": "az login authenticates to Azure.",
+        "subject": "Azure CLI",
+        "topic": "Authentication"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you list container registries?",
+        "command_template": "az {key1} {key2}",
+        "blanks": ["key1", "key2"],
+        "answer": {
+            "key1": "acr",
+            "key2": "list"
+        },
+        "explanation": "az acr list lists container registries.",
+        "subject": "Azure Containers",
+        "topic": "Azure Container Registry"
+    },
+    {
+        "question_type": "mcq",
+        "question": "Which command lists Azure subscriptions?",
+        "choices": [
+            "az account list",
+            "az subscription list",
+            "az profile list"
+        ],
+        "answer": "az account list",
+        "explanation": "az account list lists subscriptions.",
+        "subject": "Azure CLI",
+        "topic": "Account Management"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you scale an Azure App Service Plan?",
+        "command_template": "az appservice plan update --{flag1} MyPlan --{flag2} MyResourceGroup --{flag3} P1v2",
+        "blanks": ["flag1", "flag2", "flag3"],
+        "answer": {
+            "flag1": "name",
+            "flag2": "resource-group",
+            "flag3": "sku"
+        },
+        "explanation": "az appservice plan update scales an App Service Plan.",
+        "subject": "Azure Compute",
+        "topic": "Azure App Service"
+    },
+    {
+        "question_type": "full_command",
+        "question": "How do you create an Azure Storage account?",
+        "command": "az storage account create --name mystorageacct --resource-group myresourcegroup --location eastus --sku Standard_LRS",
+        "answer": "az storage account create --name mystorageacct --resource-group myresourcegroup --location eastus --sku Standard_LRS",
+        "explanation": "az storage account create provisions a storage account.",
+        "subject": "Azure Storage",
+        "topic": "Azure Storage Account"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you assign a role to a user?",
+        "command_template": "az role assignment {key1} --{flag1} user@domain.com --{flag2} Contributor --{flag3} /subscriptions/xxxx-xxxx",
+        "blanks": ["key1", "flag1", "flag2", "flag3"],
+        "answer": {
+            "key1": "create",
+            "flag1": "assignee",
+            "flag2": "role",
+            "flag3": "scope"
+        },
+        "explanation": "az role assignment create assigns a role.",
+        "subject": "Azure Security",
+        "topic": "Azure RBAC"
+    },
+    {
+        "question_type": "mcq",
+        "question": "Which Bicep command builds a Bicep file?",
+        "choices": [
+            "bicep build",
+            "az bicep compile",
+            "bicep generate"
+        ],
+        "answer": "bicep build",
+        "explanation": "bicep build compiles Bicep to ARM template.",
+        "subject": "Bicep",
+        "topic": "Bicep CLI"
+    },
+    {
+        "question_type": "fill_blank",
+        "question": "How do you view VM size availability?",
+        "command_template": "az vm list-sizes --{flag1} eastus",
+        "blanks": ["flag1"],
+        "answer": {
+            "flag1": "location"
+        },
+        "explanation": "az vm list-sizes shows VM sizes for a region.",
+        "subject": "Azure Compute",
+        "topic": "Azure Virtual Machines"
+    },
+    {
+        "question_type": "full_command",
+        "question": "How do you show details of a resource group?",
+        "command": "az group show --name MyResourceGroup",
+        "answer": "az group show --name MyResourceGroup",
+        "explanation": "az group show displays resource group details.",
+        "subject": "Azure CLI",
+        "topic": "Resource Groups"
+    }
+]
