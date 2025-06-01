@@ -1,6 +1,6 @@
 {
     "username": "Miguel",
-    "xp": 345,
+    "xp": 380,
     "level": 3,
     "topics": {
         "Azure Key Vault": {
@@ -8,11 +8,11 @@
             "incorrect": 0
         },
         "Blob Storage": {
-            "correct": 0,
+            "correct": 1,
             "incorrect": 2
         },
         "Azure Functions": {
-            "correct": 2,
+            "correct": 5,
             "incorrect": 0
         },
         "Azure SQL Database": {
@@ -20,15 +20,15 @@
             "incorrect": 1
         },
         "Azure Service Bus": {
-            "correct": 1,
+            "correct": 2,
             "incorrect": 1
         },
         "Azure Storage Account": {
-            "correct": 3,
-            "incorrect": 2
+            "correct": 4,
+            "incorrect": 3
         },
         "Azure Container Registry": {
-            "correct": 1,
+            "correct": 2,
             "incorrect": 0
         },
         "Azure Logic Apps": {
@@ -36,7 +36,7 @@
             "incorrect": 1
         },
         "Azure App Service": {
-            "correct": 1,
+            "correct": 2,
             "incorrect": 0
         },
         "Azure Application Gateway": {
@@ -48,7 +48,7 @@
             "incorrect": 1
         },
         "Azure Monitor": {
-            "correct": 4,
+            "correct": 5,
             "incorrect": 1
         },
         "Durable Functions": {
@@ -73,19 +73,19 @@
         },
         "Azure App Configuration": {
             "correct": 1,
-            "incorrect": 1
+            "incorrect": 3
         },
         "Azure Repos": {
             "correct": 2,
             "incorrect": 0
         },
         "Azure Kubernetes Service": {
-            "correct": 2,
+            "correct": 3,
             "incorrect": 0
         },
         "API Management": {
             "correct": 0,
-            "incorrect": 1
+            "incorrect": 3
         },
         "Azure Pipelines": {
             "correct": 1,
@@ -96,8 +96,8 @@
             "incorrect": 0
         },
         "Azure Virtual Machines": {
-            "correct": 2,
-            "incorrect": 1
+            "correct": 3,
+            "incorrect": 2
         },
         "Azure Load Balancer": {
             "correct": 0,
@@ -124,6 +124,10 @@
             "incorrect": 0
         },
         "Azure Event Hubs": {
+            "correct": 1,
+            "incorrect": 0
+        },
+        "Azure Boards": {
             "correct": 1,
             "incorrect": 0
         }

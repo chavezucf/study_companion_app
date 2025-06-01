@@ -5,12 +5,12 @@ from components.session_manager import reset_session, MODULE_SESSION_KEYS
 from utils.ui_helpers import xp_progress_bar
 from utils.logger import log_event
 
-def render_session_summary(module_name: str, profile_manager, correct_count: int, incorrect_count: int, xp_per_correct: int):
+def render_session_summary(module_name: str, page_title: str, profile_manager, correct_count: int, incorrect_count: int, xp_per_correct: int):
     """
     Shared session summary component.
     """
     xp_progress_bar(st, profile_manager)
-    st.header("Session Summary")
+    st.header(f"Session Summary: {page_title}")
 
     st.write(f"Correct: {correct_count}")
     st.write(f"Incorrect: {incorrect_count}")
@@ -29,4 +29,4 @@ def render_session_summary(module_name: str, profile_manager, correct_count: int
     st.write("")
 
     if st.button("Start New Session", key=f"{module_name}_start_new_session"):
-        reset_session(MODULE_SESSION_KEYS[module_name])
+        reset_session(MODULE_SESSION_KEYS[module_name]["keys"])

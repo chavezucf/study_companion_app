@@ -2,6 +2,9 @@
 
 import json
 from collections import defaultdict
+from utils.ui_helpers import render_footer
+import streamlit as st
+from components.subject_multi_selector import render_subject_multi_selector
 
 class SubjectManager:
     def __init__(self, questions_file_path):
@@ -26,25 +29,20 @@ class SubjectManager:
 
     @staticmethod
     def get_selected_subjects(questions, title="Select Subjects", key_prefix="subject"):
-        """
-        Handles full subject selection flow given a list of questions.
-        Returns the list of selected subjects.
-        """
         subjects = sorted({q.get("subject", "Unknown Subject") for q in questions})
-        import streamlit as st
-        from components.subject_multi_selector import render_subject_multi_selector
         if "selected_subjects" not in st.session_state:
             st.session_state.selected_subjects = set()
         if "subjects_confirmed" not in st.session_state:
             st.session_state.subjects_confirmed = False
-        # If no subjects confirmed yet → show selector
         if not st.session_state["subjects_confirmed"]:
             st.title(title)
             selected_subjects = render_subject_multi_selector(subjects, key_prefix=key_prefix)
             if st.button("Continue", disabled=not selected_subjects, key=f"{key_prefix}_continue"):
                 st.session_state.subjects_confirmed = True
+                st.session_state.just_confirmed_subjects = True 
                 st.session_state.selected_subjects = selected_subjects
                 st.rerun()
+            render_footer()
             st.stop()
         else:
             selected_subjects = st.session_state.selected_subjects

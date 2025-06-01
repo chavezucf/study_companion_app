@@ -1,15 +1,15 @@
-# components/cli_question_block.py
+# components/cli_trainer_question_block.py
 
 import streamlit as st
 from utils.logger import log_event
 
-def render_cli_question(profile_manager):
-    current_index = st.session_state.cli_question_index
-    questions = st.session_state.cli_questions_shuffled
+def render_cli_trainer_question(profile_manager):
+    current_index = st.session_state.cli_trainer_question_index
+    questions = st.session_state.cli_trainer_questions_shuffled
 
     if current_index >= len(questions):
         st.success("You've answered all available questions! Ending session.")
-        st.session_state.cli_session_active = False
+        st.session_state.cli_trainer_session_active = False
         log_event("CLI Trainer auto-ended after last question.")
         return
 
@@ -21,7 +21,7 @@ def render_cli_question(profile_manager):
 
     st.write("")
 
-    if not st.session_state.cli_last_answer_submitted:
+    if not st.session_state.cli_trainer_last_answer_submitted:
         # Detect question type
         q_type = current_question["question_type"]
 
@@ -47,8 +47,8 @@ def render_cli_question(profile_manager):
     else:
         # Next Question button
         if st.button("Go To Next Question"):
-            st.session_state.cli_question_index += 1
-            st.session_state.cli_last_answer_submitted = False
+            st.session_state.cli_trainer_question_index += 1
+            st.session_state.cli_trainer_last_answer_submitted = False
             st.rerun()
 
 # === CHECK FUNCTIONS ===
@@ -59,18 +59,18 @@ def check_full_command(user_input, question, profile_manager):
     if user_input.strip() == correct_answer.strip():
         st.success("Correct!")
         st.code(correct_answer, language="bash")
-        st.session_state.cli_correct_count += 1
+        st.session_state.cli_trainer_correct_count += 1
         log_event(f"Correct full_command answer.")
         profile_manager.update_topic_performance(question["subject"], correct=True)
     else:
         st.error("Incorrect.")
         st.code(correct_answer, language="bash")
         st.info(f"Explanation: {question['explanation']}")
-        st.session_state.cli_incorrect_count += 1
+        st.session_state.cli_trainer_incorrect_count += 1
         log_event(f"Incorrect full_command answer.")
         profile_manager.update_topic_performance(question["subject"], correct=False)
 
-    st.session_state.cli_last_answer_submitted = True
+    st.session_state.cli_trainer_last_answer_submitted = True
 
 def check_fill_blank(user_answers, question, profile_manager):
     correct = True
@@ -81,18 +81,18 @@ def check_fill_blank(user_answers, question, profile_manager):
     if correct:
         st.success("Correct!")
         st.code(question["command_template"].format(**question["answer"]), language="bash")
-        st.session_state.cli_correct_count += 1
+        st.session_state.cli_trainer_correct_count += 1
         log_event(f"Correct fill_blank answer.")
         profile_manager.update_topic_performance(question["subject"], correct=True)
     else:
         st.error("Incorrect.")
         st.code(question["command_template"].format(**question["answer"]), language="bash")
         st.info(f"Explanation: {question['explanation']}")
-        st.session_state.cli_incorrect_count += 1
+        st.session_state.cli_trainer_incorrect_count += 1
         log_event(f"Incorrect fill_blank answer.")
         profile_manager.update_topic_performance(question["subject"], correct=False)
 
-    st.session_state.cli_last_answer_submitted = True
+    st.session_state.cli_trainer_last_answer_submitted = True
 
 def check_mcq(choice, question, profile_manager):
     correct_answer = question["answer"]
@@ -100,15 +100,15 @@ def check_mcq(choice, question, profile_manager):
     if choice == correct_answer:
         st.success("Correct!")
         st.code(correct_answer, language="bash")
-        st.session_state.cli_correct_count += 1
+        st.session_state.cli_trainer_correct_count += 1
         log_event(f"Correct mcq answer.")
         profile_manager.update_topic_performance(question["subject"], correct=True)
     else:
         st.error("Incorrect.")
         st.code(correct_answer, language="bash")
         st.info(f"Explanation: {question['explanation']}")
-        st.session_state.cli_incorrect_count += 1
+        st.session_state.cli_trainer_incorrect_count += 1
         log_event(f"Incorrect mcq answer.")
         profile_manager.update_topic_performance(question["subject"], correct=False)
 
-    st.session_state.cli_last_answer_submitted = True
+    st.session_state.cli_trainer_last_answer_submitted = True
