@@ -1,7 +1,7 @@
 {
     "username": "Miguel",
-    "xp": 250,
-    "level": 2,
+    "xp": 345,
+    "level": 3,
     "topics": {
         "Azure Key Vault": {
             "correct": 1,
@@ -56,7 +56,7 @@
             "incorrect": 0
         },
         "Azure AD B2C": {
-            "correct": 1,
+            "correct": 3,
             "incorrect": 0
         },
         "Azure Front Door": {
@@ -72,7 +72,7 @@
             "incorrect": 1
         },
         "Azure App Configuration": {
-            "correct": 0,
+            "correct": 1,
             "incorrect": 1
         },
         "Azure Repos": {
@@ -96,7 +96,7 @@
             "incorrect": 0
         },
         "Azure Virtual Machines": {
-            "correct": 1,
+            "correct": 2,
             "incorrect": 1
         },
         "Azure Load Balancer": {
@@ -108,8 +108,26 @@
             "incorrect": 0
         },
         "Azure CLI": {
-            "correct": 15,
-            "incorrect": 66
+            "correct": 22,
+            "incorrect": 71
+        },
+        "Azure Compute": {
+            "correct": 0,
+            "incorrect": 1
+        },
+        "Azure Storage": {
+            "correct": 0,
+            "incorrect": 4
+        },
+        "Azure DevTest Labs": {
+            "correct": 2,
+            "incorrect": 0
+        },
+        "Azure Event Hubs": {
+            "correct": 1,
+            "incorrect": 0
         }
-    }
+    },
+    "selected_subject": "Azure Compute",
+    "selected_topic": "Azure App Service"
 }

@@ -6,11 +6,13 @@ import random
 import os
 from utils.logger import log_event
 from core.profile_manager import ProfileManager
+from core.subject_manager import SubjectManager
+from components.session_manager import reset_session, MODULE_SESSION_KEYS
 from utils.ui_helpers import (
+    set_page_config,
     xp_progress_bar,
     render_page_header,
-    render_footer,
-    hide_sidebar,
+    render_footer
 )
 
 from components.cli_question_block import render_cli_question
@@ -19,11 +21,14 @@ from components.cli_session_summary import render_cli_session_summary
 QUESTIONS_PATH = "data/cli_questions.json"
 
 # Page config
-st.set_page_config(page_title="AZ-204 CLI Trainer", page_icon="💻", layout="centered")
-hide_sidebar()
+set_page_config(page_title="AZ-204 CLI Trainer", page_icon="💻")
 
 # Initialize profile
 profile_manager = ProfileManager()
+
+# --- SUBJECT SELECTION FLOW using SubjectManager ---
+subject_manager = SubjectManager(QUESTIONS_PATH)
+
 
 # Load questions
 if not os.path.exists(QUESTIONS_PATH):
@@ -32,6 +37,16 @@ if not os.path.exists(QUESTIONS_PATH):
 
 with open(QUESTIONS_PATH, "r") as f:
     questions = json.load(f)
+
+# Subject selection flow (modular, DRY)
+selected_subjects = subject_manager.get_selected_subjects(
+    title="Select subjects for CLI Trainer",
+    key_prefix="cli_subject",
+    questions=questions
+)
+
+# Filter questions by selected subjects
+questions = [q for q in questions if q.get("subject") in selected_subjects] if selected_subjects else questions
 
 # Initialize session state
 if "cli_questions_shuffled" not in st.session_state:

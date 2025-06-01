@@ -3,15 +3,18 @@
 import streamlit as st
 from core.xp_system import LEVEL_THRESHOLDS
 
-def hide_sidebar():
-    print("Hiding sidebar")
-    # st.markdown("""
-    # <style>
-    #     [data-testid="stSidebarNav"] { display: none; }
-    #     [data-testid="stSidebar"] { display: none; }
-    #     [data-testid="stSidebarCollapsedControl"] { display: none; }
-    # </style>
-    # """, unsafe_allow_html=True)
+def set_page_config(page_title = "AZ-204 Study Companion", page_icon = "📚"):
+    st.set_page_config(
+        page_title= page_title, 
+        page_icon= page_icon, 
+        layout="centered", 
+        initial_sidebar_state="collapsed",
+        menu_items={
+           # 'Get Help': 'https://www.extremelycoolapp.com/help',
+           # 'Report a bug': "https://www.extremelycoolapp.com/bug",
+            'About': "### AZ-204 Study Companion v0.1 | Built by Miguel"
+        }
+    )
 
 def back_to_main_menu():
     st.page_link("main.py", label="Back to Main Menu")

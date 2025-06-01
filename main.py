@@ -1,7 +1,7 @@
 import streamlit as st
 from core.profile_manager import ProfileManager
 from utils.ui_helpers import (
-    hide_sidebar,
+    set_page_config,
     render_page_header,
     xp_progress_bar,
     render_footer,
@@ -9,10 +9,7 @@ from utils.ui_helpers import (
 from utils.logger import log_event
 
 # Page config
-st.set_page_config(page_title="AZ-204 Study Companion", page_icon="📚", layout="centered")
-
-# Hide sidebar
-hide_sidebar()
+set_page_config()
 
 # Initialize profile
 profile_manager = ProfileManager()

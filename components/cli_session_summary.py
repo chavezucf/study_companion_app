@@ -3,7 +3,7 @@
 import streamlit as st
 from utils.logger import log_event
 from utils.ui_helpers import xp_progress_bar
-
+from components.session_manager import reset_session, MODULE_SESSION_KEYS
 def render_cli_session_summary(profile_manager):
     xp_progress_bar(st, profile_manager)
     st.header("Session Summary")
@@ -23,16 +23,6 @@ def render_cli_session_summary(profile_manager):
 
     st.write("")
 
-    if st.button("Start New Session"):
-        for key in [
-            "cli_questions_shuffled",
-            "cli_question_index",
-            "cli_correct_count",
-            "cli_incorrect_count",
-            "cli_session_active",
-            "cli_last_answer_submitted",
-            "cli_xp_added",
-        ]:
-            st.session_state.pop(key, None)
-
+    if st.button("Start New Session)"):
+        reset_session(MODULE_SESSION_KEYS["cli_trainer"])
         st.rerun()
